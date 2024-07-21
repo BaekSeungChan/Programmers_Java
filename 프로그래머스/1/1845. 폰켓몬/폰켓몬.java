@@ -1,19 +1,24 @@
-import java.util.*;
+import java.util.HashMap;
 
 class Solution {
     public int solution(int[] nums) {
-        int max = nums.length / 2;
+        int count = nums.length / 2;
+        HashMap<Integer, Integer> map = new HashMap<>();
         
-        Set<Integer> numSet = new HashSet<>();
-        
-        for(int num : nums){
-            numSet.add(num);
+        for(int i = 0; i < nums.length; i++){
+            if(map.containsKey(nums[i])){
+                map.put(nums[i], map.get(nums[i]) + 1);
+            } else {
+                map.put(nums[i], 1);
+            }
         }
         
-        if(numSet.size() > max){
-            return max;
+        if(map.keySet().size() > count){
+            return count;
         } else {
-            return numSet.size();
+            return map.keySet().size();
         }
     }
 }
+
+
