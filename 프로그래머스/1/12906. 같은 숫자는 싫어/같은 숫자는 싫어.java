@@ -1,25 +1,24 @@
 import java.util.*;
 
 public class Solution {
-    public int[] solution(int []arr) {
-        List<Integer> tempList = new ArrayList<>();
+    public int[] solution(int[] arr) {
+        List<Integer> result = new ArrayList<>();
         
         int temp = -1;
         
-        for(int num : arr){
-            if(temp != num){
-                tempList.add(num);
+        for (int i = 0; i < arr.length; i++) {
+            if (temp != arr[i]) {
+                result.add(arr[i]);
+                temp = arr[i];
             }
-            temp = num;
         }
         
+        int[] answer = new int[result.size()];
         
-        int[] answer = new int[tempList.size()];
-        
-        for(int i = 0; i < answer.length; i++){
-            answer[i] = tempList.get(i);
+        for (int j = 0; j < result.size(); j++) {
+            answer[j] = result.get(j);
         }
-        
+
         return answer;
     }
 }
